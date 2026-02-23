@@ -1,0 +1,126 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cifra de César • Disco</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">CdC</div>
+        <div class="title-wrap">
+          <h1>Cifra de César</h1>
+          <p>Disco do alfabeto + codificação automática</p>
+        </div>
+      </div>
+
+      <div class="badge" id="modeBadge" title="Modo atual">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="modeText">Codificar</span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Disco -->
+      <section class="card wheel-card" aria-label="Disco do alfabeto">
+        <div class="card-head">
+          <h2>Disco do Alfabeto</h2>
+          <div class="mini">
+            <span class="pill">A→</span>
+            <span id="mapping" class="mapping">A = A</span>
+          </div>
+        </div>
+
+        <div class="wheel-wrap">
+          <div class="wheel" role="img" aria-label="Roda com alfabeto externo e interno">
+            <div class="ring ring-outer">
+              <div class="ring-label">Normal</div>
+              <div id="outerLetters" class="letters"></div>
+            </div>
+
+            <div class="ring ring-inner" id="innerRing">
+              <div class="ring-label">Cifrado</div>
+              <div id="innerLetters" class="letters"></div>
+            </div>
+
+            <div class="center">
+              <div class="center-top">Casas</div>
+              <div class="center-shift">
+                <span id="shiftValue">3</span>
+              </div>
+              <div class="center-sub">deslocamento</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="ctrl">
+            <label for="shift">Quantidade de casas</label>
+            <div class="ctrl-row">
+              <input id="shift" type="range" min="0" max="25" value="3" />
+              <input id="shiftNum" type="number" min="0" max="25" value="3" inputmode="numeric" />
+            </div>
+            <small class="hint">Dica: 0 não muda nada. 3 é o clássico do Júlio César.</small>
+          </div>
+
+          <div class="actions">
+            <button class="btn ghost" id="swapMode" type="button" title="Alternar entre codificar e decodificar">
+              Alternar modo
+            </button>
+            <button class="btn" id="reset" type="button" title="Voltar para 3 casas e limpar texto">
+              Reset
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Texto -->
+      <section class="card io-card" aria-label="Codificar texto">
+        <div class="card-head">
+          <h2>Texto</h2>
+          <p class="sub">Digite uma palavra, várias palavras ou uma frase. Mantemos espaços e pontuação.</p>
+        </div>
+
+        <div class="io">
+          <div class="field">
+            <label for="inputText">Entrada</label>
+            <textarea id="inputText" placeholder="Ex: ataque ao amanhecer!" rows="4"></textarea>
+          </div>
+
+          <div class="field">
+            <div class="field-row">
+              <label for="outputText">Saída</label>
+              <div class="mini-actions">
+                <button class="chip" id="copyOut" type="button" title="Copiar saída">Copiar</button>
+                <button class="chip" id="useOutAsIn" type="button" title="Jogar a saída na entrada">Usar como entrada</button>
+              </div>
+            </div>
+            <textarea id="outputText" placeholder="O texto codificado/decodificado aparece aqui…" rows="4" readonly></textarea>
+          </div>
+
+          <div class="note">
+            <span class="note-ico" aria-hidden="true">ⓘ</span>
+            <p>
+              Letras com acento (á, ç, ã...) são mantidas como estão.
+              A cifra trabalha em <strong>A-Z</strong>. Letras minúsculas também funcionam.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Feito em HTML + CSS + JS • Cifra de César</span>
+      <span class="sep">•</span>
+      <span id="status">Pronto.</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
