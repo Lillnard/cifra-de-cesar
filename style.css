@@ -402,6 +402,11 @@
     justify-content:center;
     user-select:none;
   }
+
+  .dev {
+    font-weight: bold;
+  }
+
   .sep{ opacity: .5; }
   
   @media (max-width: 920px){
