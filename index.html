@@ -26,7 +26,6 @@
     </header>
 
     <main class="grid">
-      <!-- Disco -->
       <section class="card wheel-card" aria-label="Disco do alfabeto">
         <div class="card-head">
           <h2>Disco do Alfabeto</h2>
@@ -38,7 +37,6 @@
 
         <div class="wheel-wrap">
           <div class="wheel" id="wheel" role="img" aria-label="Roda com alfabeto externo e interno">
-            <!-- “Risquinhos” de ligação (gerados via JS) -->
             <svg class="spokes" id="spokes" viewBox="0 0 100 100" aria-hidden="true"></svg>
 
             <div class="ring ring-outer">
@@ -46,18 +44,14 @@
               <div id="outerLetters" class="letters"></div>
             </div>
 
-            <!-- Disco que gira -->
             <div class="ring ring-inner" id="innerRing">
               <div id="innerLetters" class="letters"></div>
             </div>
 
-            <!-- Label fixo do disco interno (não gira) -->
             <div class="ring-label ring-label-inner-fixed">Cifrado</div>
 
             <div class="center">
               <div class="center-top">Casas</div>
-
-              <!-- Agora dá pra clicar e digitar aqui -->
               <div class="center-shift">
                 <input
                   id="shiftCenter"
@@ -69,11 +63,9 @@
                   aria-label="Quantidade de casas"
                 />
               </div>
-
               <div class="center-sub">deslocamento</div>
             </div>
 
-            <!-- dica invisível pra leitores: disco arrastável -->
             <span class="sr-only" aria-hidden="true">Arraste o disco para girar</span>
           </div>
         </div>
@@ -86,7 +78,7 @@
               <input id="shiftNum" type="number" min="0" max="25" value="3" inputmode="numeric" />
             </div>
             <small class="hint">Dica: 0 não muda nada. 3 é o clássico do Júlio César.</small>
-            <small class="hint">Extra: você também pode girar o disco arrastando (tipo cofre).</small>
+            <small class="hint">Extra: arraste o disco (tipo cofre). Cada “encaixe” dá um clique e vibra no mobile.</small>
           </div>
 
           <div class="actions">
@@ -100,7 +92,6 @@
         </div>
       </section>
 
-      <!-- Texto -->
       <section class="card io-card" aria-label="Codificar texto">
         <div class="card-head">
           <h2>Texto</h2>

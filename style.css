@@ -28,6 +28,7 @@
       radial-gradient(900px 700px at 50% 120%, rgba(46,229,157,.10), transparent 50%),
       var(--bg);
     padding: 22px;
+    user-select: none;
   }
   
   .app{ max-width: 1080px; margin: 0 auto; }
@@ -131,7 +132,7 @@
       rgba(255,255,255,.03);
     border: 1px solid rgba(255,255,255,.12);
     box-shadow: 0 24px 60px rgba(0,0,0,.45);
-    touch-action: none; /* importante pro drag no mobile */
+    touch-action: none;
     cursor: grab;
   }
   .wheel:active{ cursor: grabbing; }
@@ -151,7 +152,6 @@
     inset: 70px;
     border: 1px dashed rgba(255,255,255,.18);
     transform: rotate(0deg);
-    transition: transform 220ms ease;
     will-change: transform;
   }
   
@@ -170,12 +170,10 @@
     z-index: 6;
   }
   
-  /* label do disco interno fixo no topo (não gira) */
   .ring-label-inner-fixed{
-    top: 70px; /* posição no topo do disco interno */
+    top: 70px;
   }
   
-  /* Letras */
   .letters{ position:absolute; inset:0; }
   
   .letter{
@@ -194,7 +192,6 @@
   
   .ring-inner .letter{ color: rgba(255,255,255,.92); opacity: .95; }
   
-  /* Indicativo de “primeira letra” (A) */
   .letter.is-first{
     color: rgba(43,212,255,.98);
     text-shadow:
@@ -202,7 +199,6 @@
       0 1px 12px rgba(0,0,0,.35);
   }
   
-  /* Risquinhos: ficam entre os discos e entram no menor */
   .spokes{
     position:absolute;
     inset:0;
@@ -257,12 +253,8 @@
     background-clip: text;
     padding: 0;
   }
-  
   #shiftCenter::-webkit-outer-spin-button,
-  #shiftCenter::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-    margin: 0;
-  }
+  #shiftCenter::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
   #shiftCenter[type=number]{ -moz-appearance: textfield; }
   
   .center-sub{ font-size: 12px; color: var(--muted); }
