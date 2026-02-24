@@ -504,6 +504,6 @@ body.light .footer{ color: rgba(0,0,0,.55); }
   body{ padding: 14px; }
   .wheel{ width: min(330px, 92vw); }
   input[type="number"]{ width: 78px; }
-  .ring-label{ top: -10px; }
+  .ring-label{ top: -25px; }
   .ring-label-inner-fixed{ top: 48px; }
 }
