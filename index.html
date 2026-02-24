@@ -14,24 +14,49 @@
       <div class="brand">
         <div class="logo" aria-hidden="true">CdC</div>
         <div class="title-wrap">
-          <h1>Cifra de César</h1>
-          <p>Disco do alfabeto + codificação automática</p>
+          <h1 data-i18n="appTitle">Cifra de César</h1>
+          <p data-i18n="appSubtitle">Disco do alfabeto + codificação automática</p>
         </div>
       </div>
 
-      <div class="badge" id="modeBadge" title="Modo atual">
-        <span class="dot" aria-hidden="true"></span>
-        <span id="modeText">Codificar</span>
+      <div class="top-actions">
+        <!-- fica no topo: tema e idioma -->
+        <button class="icon-btn" id="themeToggle" type="button" title="Alternar tema" aria-label="Alternar tema">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+
+        <button class="icon-btn" id="langToggle" type="button" title="Trocar idioma" aria-label="Trocar idioma">
+          <span id="langIcon" aria-hidden="true">EN</span>
+        </button>
+
+        <div class="badge" id="modeBadge" title="Modo atual">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="modeText" data-i18n="modeEncode">Codificar</span>
+        </div>
       </div>
     </header>
 
     <main class="grid">
+      <!-- Disco -->
       <section class="card wheel-card" aria-label="Disco do alfabeto">
-        <div class="card-head">
-          <h2>Disco do Alfabeto</h2>
-          <div class="mini">
-            <span class="pill">A→</span>
-            <span id="mapping" class="mapping">A = A</span>
+        <div class="card-head card-head-row">
+          <div class="card-head-left">
+            <h2 data-i18n="wheelTitle">Disco do Alfabeto</h2>
+            <div class="mini">
+              <span class="pill">A→</span>
+              <span id="mapping" class="mapping">A = A</span>
+            </div>
+          </div>
+
+          <!-- Som/Vibração agora ficam AQUI dentro do card -->
+          <div class="card-head-tools" aria-label="Controles de som e vibração">
+            <button class="icon-btn small" id="soundToggle" type="button" title="Som" aria-label="Som">
+              <span id="soundIcon" aria-hidden="true">🔊</span>
+            </button>
+
+            <button class="icon-btn small" id="hapticsToggle" type="button" title="Vibração" aria-label="Vibração">
+              <span id="hapticsIcon" aria-hidden="true">📳</span>
+            </button>
           </div>
         </div>
 
@@ -40,7 +65,7 @@
             <svg class="spokes" id="spokes" viewBox="0 0 100 100" aria-hidden="true"></svg>
 
             <div class="ring ring-outer">
-              <div class="ring-label">Normal</div>
+              <div class="ring-label" data-i18n="labelNormal">Normal</div>
               <div id="outerLetters" class="letters"></div>
             </div>
 
@@ -48,10 +73,10 @@
               <div id="innerLetters" class="letters"></div>
             </div>
 
-            <div class="ring-label ring-label-inner-fixed">Cifrado</div>
+            <div class="ring-label ring-label-inner-fixed" data-i18n="labelCipher">Cifrado</div>
 
             <div class="center">
-              <div class="center-top">Casas</div>
+              <div class="center-top" data-i18n="centerHouses">Casas</div>
               <div class="center-shift">
                 <input
                   id="shiftCenter"
@@ -63,61 +88,62 @@
                   aria-label="Quantidade de casas"
                 />
               </div>
-              <div class="center-sub">deslocamento</div>
+              <div class="center-sub" data-i18n="centerShift">deslocamento</div>
             </div>
 
-            <span class="sr-only" aria-hidden="true">Arraste o disco para girar</span>
+            <span class="sr-only" aria-hidden="true" data-i18n="srDrag">Arraste o disco para girar</span>
           </div>
         </div>
 
         <div class="controls">
           <div class="ctrl">
-            <label for="shift">Quantidade de casas</label>
+            <label for="shift" data-i18n="shiftLabel">Quantidade de casas</label>
             <div class="ctrl-row">
               <input id="shift" type="range" min="0" max="25" value="3" />
               <input id="shiftNum" type="number" min="0" max="25" value="3" inputmode="numeric" />
             </div>
-            <small class="hint">Dica: 0 não muda nada. 3 é o clássico do Júlio César.</small>
-            <small class="hint">Extra: arraste o disco (tipo cofre). Cada “encaixe” dá um clique e vibra no mobile.</small>
+            <small class="hint" data-i18n="hintClassic">Dica: 0 não muda nada. 3 é o clássico do Júlio César.</small>
+            <small class="hint" data-i18n="hintDrag">Extra: arraste o disco (tipo cofre). Cada encaixe dá clique e vibra (se suportado).</small>
           </div>
 
           <div class="actions">
-            <button class="btn ghost" id="swapMode" type="button" title="Alternar entre codificar e decodificar">
-              Alternar modo
+            <button class="btn ghost" id="swapMode" type="button" title="Alternar entre codificar e decodificar" data-i18n="btnSwapToDecode">
+              Alternar para decodificar
             </button>
-            <button class="btn" id="reset" type="button" title="Voltar para 3 casas e limpar texto">
+            <button class="btn" id="reset" type="button" title="Voltar para 3 casas e limpar texto" data-i18n="btnReset">
               Reset
             </button>
           </div>
         </div>
       </section>
 
+      <!-- Texto -->
       <section class="card io-card" aria-label="Codificar texto">
         <div class="card-head">
-          <h2>Texto</h2>
-          <p class="sub">Digite aqui o texto que deseja codificar. Mantemos espaços e pontuação.</p>
+          <h2 data-i18n="textTitle">Texto</h2>
+          <p class="sub" data-i18n="textSubtitle">Digite aqui o texto que deseja codificar. Mantemos espaços e pontuação.</p>
         </div>
 
         <div class="io">
           <div class="field">
-            <label for="inputText">Entrada</label>
-            <textarea id="inputText" placeholder="Ex: ataque ao amanhecer!" rows="4"></textarea>
+            <label for="inputText" data-i18n="inputLabel">Entrada</label>
+            <textarea id="inputText" data-i18n-ph="inputPlaceholder" placeholder="Ex: ataque ao amanhecer!" rows="4"></textarea>
           </div>
 
           <div class="field">
             <div class="field-row">
-              <label for="outputText">Saída</label>
+              <label for="outputText" data-i18n="outputLabel">Saída</label>
               <div class="mini-actions">
-                <button class="chip" id="copyOut" type="button" title="Copiar saída">Copiar saída</button>
-                <button class="chip" id="useOutAsIn" type="button" title="Jogar a saída na entrada">Usar como entrada</button>
+                <button class="chip" id="copyOut" type="button" title="Copiar saída" data-i18n="btnCopy">Copiar saída</button>
+                <button class="chip" id="useOutAsIn" type="button" title="Jogar a saída na entrada" data-i18n="btnUseAsInput">Usar como entrada</button>
               </div>
             </div>
-            <textarea id="outputText" placeholder="O texto codificado/decodificado aparece aqui…" rows="4" readonly></textarea>
+            <textarea id="outputText" data-i18n-ph="outputPlaceholder" placeholder="O texto codificado/decodificado aparece aqui…" rows="4" readonly></textarea>
           </div>
 
           <div class="note">
             <span class="note-ico" aria-hidden="true">ⓘ</span>
-            <p>
+            <p data-i18n-html="noteText">
               Letras com acento (á, ç, ã...) são mantidas como estão.
               A cifra trabalha em <strong>A-Z</strong>. Letras minúsculas também funcionam.
             </p>
@@ -130,7 +156,7 @@
       <div>
         <span class="dev">Desenvolvido por Leonardo G. Fonseca</span>
         <span class="sep">•</span>
-        <span id="status">Pronto.</span>
+        <span id="status" data-i18n="statusReady">Pronto.</span>
       </div>
     </footer>
   </div>
